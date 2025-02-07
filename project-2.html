@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Job Organizer</title>
+    <meta name="description" content="Case study page of Project" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/png/1690377068915.jpg"
+              alt="Ram Maheshwari Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Vener C. Servito</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="./index.html" class="header__link"> Home </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#about" class="header__link">About </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#projects" class="header__link">
+                Projects
+              </a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#contact" class="header__link"> Contact </a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="./assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="./assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="./index.html"> Home </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#about"> About </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#projects"> Projects </a>
+            </li>
+
+            <li class="header__sm-menu-link">
+              <a href="./index.html#contact"> Contact </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section id="contact" class="project-cs-hero">
+      <div class="project-cs-hero__content">
+        <h1 class="heading-primary">Job Organizer for Solar Proposal Designs</h1>
+        <div class="project-cs-hero__info">
+          <p class="text-primary">
+            By automating various manual processes, this tool significantly improves speed, accuracy, and overall productivity in handling solar energy sales and installations. 
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="project-details">
+      <div class="slider-container">
+        <div class="slides">
+          <div class="slide">
+              <img src="./assets/jpeg/JO1.png" alt="Slide 1">
+          </div>
+      </div>
+      
+          
+          <!-- Add more slides as needed -->
+        </div>
+      
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+      </div>
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Project Overview</h3>
+              <p class="project-details__desc-para">
+                <strong>Key Features:</strong>  
+                <br><br>
+              
+                <strong>Task Timer</strong> – A built-in timer helps users track their time spent on tasks, ensuring optimal productivity.  
+                <br><br>
+              
+                <strong>Automated Data Extraction</strong> – The tool extracts relevant data from a webpage displaying incoming tasks, automatically sorting and populating the required input fields. Each field includes a copy button for easy manual entry when needed.  
+                <br><br>
+              
+                <strong>Annual Consumption Calculation</strong> – A simple function divides the annual energy consumption by 12 to determine the monthly usage.  
+                <br><br>
+              
+                <strong>Panel Installation Calculation</strong> – Determines the number of approved panels that can be installed on a roof with existing panels. This involves calculating the total roof area, subtracting the area occupied by existing panels, and applying the 33% jurisdiction limit mandated by the State of Texas.  
+                <br><br>
+              
+                <strong>Solar Panel Array Arrangement</strong> – Automatically processes and organizes panel array data, eliminating manual calculations that are prone to errors and time-consuming.  
+                <br><br>
+              
+                <strong>Distance Calculation via API</strong> – Retrieves the distance between the customer's address and the nearest company warehouse. This is crucial for estimating transportation costs.  
+                <br><br>
+              
+                <strong>Pre-Filled Customer Scripts</strong> – The tool generates pre-filled scripts for customer interactions. It dynamically incorporates customer names, addresses, and assigned sales representatives, ensuring accuracy and efficiency in communication.
+              </p>
+            </div>
+            <div class="project-details__tools-used">
+              <h3 class="project-details__content-title">Tools Used</h3>
+              <div class="skills">
+                <div class="skills__skill">JAVASCRIPT</div>
+                <div class="skills__skill">HTML</div>
+                <div class="skills__skill">CSS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Social</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/vener-servito/">
+                <img class="main-footer__icon" src="./assets/png/linkedin-ico.png" alt="LinkedIn">
+              </a>
+              
+              <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/servito.vener/">
+                <img class="main-footer__icon" src="./assets/png/facebook-ico.png" alt="Facebook">
+              </a>
+              
+              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/v.x.n.x.r/">
+                <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/png/insta-ico.png" alt="Instagram">
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Vener C. Servito</h4>
+            <p class="main-footer__short-desc">I created this for my portfolio and purposes only.
+            </p>
+          </div>
+        </div>
+
+        <div class="main-footer__lower">
+          &copy; 2025. Made by
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/v.x.n.x.r/" title="Follow me on Instagram"> Vener C. Servito</a>
+        </div>
+      </div>
+    </footer>
+    <script src="./index.js"></script>
+  </body>
+</html>
