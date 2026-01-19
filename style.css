@@ -1092,3 +1092,83 @@ textarea {
     max-height: 35vh;   /* smaller height for portrait */
   }
 }
+
+
+/* Experience Section */
+.exp__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Experience Card */
+.exp__card {
+  background: linear-gradient(
+    135deg,
+    #2e2e2e,
+    #3a3a3a
+  );
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  color: #eaeaea;
+}
+
+/* Header */
+.exp__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Position */
+.exp__position {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+/* Company */
+.exp__company {
+  font-size: 1.6rem;
+  color: #bcbcbc;
+}
+
+/* Duration */
+.exp__duration {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #d1d1d1;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Responsibilities */
+.exp__responsibilities {
+  list-style: disc;
+  padding-left: 2rem;
+}
+
+.exp__responsibilities li {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #d6d6d6;
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media only screen and (max-width: 37.5em) {
+  .exp__header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .exp__duration {
+    align-self: flex-start;
+  }
+}
