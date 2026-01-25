@@ -1172,3 +1172,19 @@ textarea {
     align-self: flex-start;
   }
 }
+
+.iframe-preview iframe {
+  height: 40rem;
+}
+
+@media only screen and (max-width: 56.25em) { /* tablet */
+  .iframe-preview iframe {
+    height: 30rem;
+  }
+}
+
+@media only screen and (max-width: 37.5em) { /* phone */
+  .iframe-preview iframe {
+    height: 25rem;
+  }
+}
