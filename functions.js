@@ -33,3 +33,20 @@ function prevSlide() {
 
 // Initialize the slider
 showSlide(currentSlide);
+
+// 
+function adjustIframeHeight() {
+  const container = document.querySelector('.iframe-preview');
+  if (!container) return;
+
+  if (window.innerWidth <= 600) { // phone
+    container.style.maxHeight = '25rem';
+  } else if (window.innerWidth <= 900) { // tablet portrait
+    container.style.maxHeight = '30rem';
+  } else { // default desktop
+    container.style.maxHeight = '40rem';
+  }
+}
+
+window.addEventListener('load', adjustIframeHeight);
+window.addEventListener('resize', adjustIframeHeight);
