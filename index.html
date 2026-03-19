@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Vener Servito</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="./assets/logo.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="./assets/png/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -22,9 +22,9 @@
 
     <header id="home" class="hero reveal">
         <div class="hero-content">
-            <div class="status-pill">● Available for IT & Engineering Roles</div>
+            <div class="status-pill">● Available for SOLAR, IT & Engineering Roles</div>
             <h1 class="hero-title">Vener <span class="cyan-gradient">Servito</span></h1>
-            <p class="hero-subtext">Computer Engineer | Solar Designer & Site Survey Review Specialist | Part-time Software Tester @ utest.com.</p>
+            <p class="hero-subtext">Solar Designer & Site Survey Review Specialist | Part-time Software Tester</p>
             <p class="hero-subtext">Alumnus of Urdaneta City University.</p>
             <p class="hero-subtext">Explore my portfolio.</p>
             <div class="hero-btns">
@@ -269,62 +269,6 @@
         <p>© 2026 Vener C. Servito. Engineered for Excellence.</p>
     </footer>
 
-    <script>
-        lucide.createIcons();
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        let currentPDF = 1;
-        const totalPDFs = 5;
-
-        function changePDF(direction) {
-            // 1. Update the current index
-            currentPDF += direction;
-            
-            // 2. Handle Looping
-            if (currentPDF > totalPDFs) currentPDF = 1;
-            if (currentPDF < 1) currentPDF = totalPDFs;
-
-            // 3. Define the new file path (FIXED: Added folder directory here)
-            const filePath = `./assets/pdf/Aurora Shade Report ${currentPDF}.pdf`;
-            
-            // 4. Update the PDF Viewer (Object)
-            const viewer = document.getElementById('pdf-viewer');
-            if (viewer) {
-                // Re-cloning the object is often necessary to force browsers to reload the PDF
-                const container = viewer.parentElement;
-                const newViewer = viewer.cloneNode(true);
-                newViewer.setAttribute('data', filePath);
-                container.replaceChild(newViewer, viewer);
-            }
-
-            // 5. Update the Counter
-            const counter = document.getElementById('pdf-counter');
-            if (counter) {
-                counter.innerText = `${currentPDF} / ${totalPDFs}`;
-            }
-
-            // 6. Update the Title
-            const title = document.getElementById('pdf-title');
-            if (title) {
-                title.innerText = `Aurora Shade Report ${currentPDF}`;
-            }
-
-            // 7. Update the Links (Fallback and Full Screen)
-            const fallback = document.getElementById('pdf-fallback');
-            const fullLink = document.getElementById('pdf-link');
-            if (fallback) fallback.setAttribute('href', filePath);
-            if (fullLink) fullLink.setAttribute('href', filePath);
-
-            // 8. Refresh Lucide Icons
-            if (window.lucide) {
-                lucide.createIcons();
-            }
-        }
-    </script>
+  <script src="./js/functions.js"></script>
 </body>
 </html>
