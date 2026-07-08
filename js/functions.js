@@ -50,3 +50,32 @@ function changePDF(direction) {
 document.addEventListener('DOMContentLoaded', () => {
     changePDF(0); 
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Load saved celestial preference
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    if (savedTheme === "light") {
+        body.classList.add("light-mode");
+    }
+
+    themeToggle.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+        
+        // Cache current selection
+        if (body.classList.contains("light-mode")) {
+            localStorage.setItem("portfolio-theme", "light");
+        } else {
+            localStorage.setItem("portfolio-theme", "dark");
+        }
+
+        // Keep Lucide icons structurally sharp during transition
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    });
+});

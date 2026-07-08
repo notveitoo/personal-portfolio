@@ -1,17 +1,45 @@
 /* ==========================================================================
-   1. VARIABLES & CORE RESET
+   1. VARIABLES & CORE RESET (With High-Energy Solar Architecture)
    ========================================================================== */
 :root {
+    /* --- Dark Mode Colors (Default) --- */
     --bg: #0b0807;
     --card: #150f0d;
-    --red: #ff2a55;
-    --yellow: #ffb300;
-    --solar-glow: rgba(255, 42, 85, 0.12);
-    --amber-glow: rgba(255, 179, 0, 0.15);
     --text-main: #fcfaf9;
     --text-dim: #a69b97;
     --border: rgba(255, 255, 255, 0.05);
     --nav-bg: rgba(21, 15, 13, 0.85);
+    --btn-github: #171210;
+    
+    /* --- Shared Aesthetic Core Accents --- */
+    --red: #ff2a55;
+    --yellow: #ffb300;
+    --solar-glow: rgba(255, 42, 85, 0.12);
+    --amber-glow: rgba(255, 179, 0, 0.15);
+}
+
+/* High-Energy Solar Flares Light Mode Overrides */
+body.light-mode {
+    /* Radiant midday sun canvas radiating into a warm plasma amber finish */
+    --bg: radial-gradient(circle at 50% -20%, #fffbf0 0%, #fff7dc 40%, #fef0c7 75%, #fde047 100%); 
+    
+    /* Sunlit solar panel backing (Semi-translucent warm topaz) */
+    --card: rgba(254, 243, 199, 0.65); 
+    
+    /* High-contrast Solar Obsidian Text for razor-sharp readability */
+    --text-main: #2b1d0c;    
+    
+    /* Burnt Amber/Sienna for secondary text layers */
+    --text-dim: #855317;     
+    
+    /* Corona-flare border accent */
+    --border: rgba(245, 158, 11, 0.25);
+    
+    /* Frosted sun-core navigation track */
+    --nav-bg: rgba(255, 251, 235, 0.85);
+    
+    /* Golden-sand GitHub utility element color */
+    --btn-github: #fef0c7;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,10 +48,22 @@ html { scroll-behavior: smooth; }
 
 body {
     background: var(--bg);
+    background-attachment: fixed; /* Keeps the sunlit gradient smooth during scroll */
     color: var(--text-main);
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
+    /* Smooth shift transit between mode states */
+    transition: background 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+                color 0.5s ease;
+}
+
+/* Make sure card designs translate gracefully across themes */
+.bento-card, .exp-card, .feature-item, input, textarea, .floating-nav, .github-link {
+    transition: background 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+                border-color 0.6s ease, 
+                color 0.6s ease,
+                box-shadow 0.4s ease;
 }
 
 .noise {
@@ -108,12 +148,6 @@ body {
     line-height: 1.05;
 }
 
-.cyan-gradient {
-    background: linear-gradient(135deg, var(--yellow), #ff5e00, var(--red));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .hero-subtext {
     color: var(--text-dim);
     font-size: clamp(0.9rem, 2vw, 1.2rem);
@@ -159,6 +193,67 @@ body {
 .cta-btn:hover { box-shadow: 0 0 30px rgba(255, 42, 85, 0.3); transform: translateY(-2px); }
 
 /* ==========================================================================
+   STATUS PILL - CELESTIAL TRANSITION & PULSE
+   ========================================================================== */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 179, 0, 0.04);
+    color: var(--yellow);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 179, 0, 0.15);
+    
+    /* Connects smoothly to your 0.8s eclipse shift layout script */
+    transition: background 0.8s ease, border-color 0.8s ease, color 0.5s ease, box-shadow 0.5s ease;
+    animation: darkSolarPulse 3s ease-in-out infinite;
+}
+
+/* Day Mode (Sunlight Flare Adjustment) */
+body.light-mode .status-pill {
+    background: rgba(234, 88, 12, 0.06);     /* Soft amber flare tint */
+    color: #c2410c;                           /* Deep high-contrast solar orange text */
+    border-color: rgba(234, 88, 12, 0.25);    /* Crisp corona boundary edge */
+    animation: lightSolarPulse 3s ease-in-out infinite;
+}
+
+/* --- Ambient Thermal Breathing Engines --- */
+@keyframes darkSolarPulse {
+    0%, 100% {
+        box-shadow: 0 0 0px rgba(255, 179, 0, 0);
+        border-color: rgba(255, 179, 0, 0.15);
+    }
+    50% {
+        box-shadow: 0 0 12px rgba(255, 179, 0, 0.15);
+        border-color: rgba(255, 179, 0, 0.4);
+    }
+}
+
+@keyframes lightSolarPulse {
+    0%, 100% {
+        box-shadow: 0 0 0px rgba(234, 88, 12, 0);
+        border-color: rgba(234, 88, 12, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(234, 88, 12, 0.12);
+        border-color: rgba(234, 88, 12, 0.6);
+    }
+}
+
+.status-pill .live-dot {
+    animation: beaconBlink 2s ease-in-out infinite;
+}
+
+@keyframes beaconBlink {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* ==========================================================================
    4. BENTO SYSTEM & LAYOUT
    ========================================================================== */
 .container { max-width: 1200px; margin: 0 auto; padding: 80px 5%; }
@@ -176,7 +271,6 @@ body {
     border: 1px solid var(--border); 
     border-radius: 24px; 
     padding: clamp(24px, 5vw, 40px); 
-    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
     grid-column: span 12; 
 }
 .bento-card:hover { border-color: rgba(255, 179, 0, 0.2); }
@@ -223,7 +317,9 @@ body {
     gap: 15px; 
 }
 .date-tag { font-size: 0.8rem; color: var(--text-dim); background: rgba(255,255,255,0.04); padding: 4px 12px; border-radius: 100px; white-space: nowrap; }
-.cyan-text { color: var(--red); font-weight: 600; margin-bottom: 10px; }
+
+.solar-text { color: var(--red); font-weight: 600; margin-bottom: 10px; }
+
 .clean-list { padding-left: 18px; color: var(--text-dim); list-style: none; }
 .clean-list li { position: relative; margin-bottom: 8px; font-size: 0.95rem; }
 .clean-list li::before { content: "•"; color: var(--yellow); position: absolute; left: -15px; }
@@ -281,10 +377,45 @@ body {
     text-decoration: none; 
     font-weight: 600; 
     font-size: 0.85rem; 
-    transition: 0.3s; 
     border: 1px solid var(--border);
 }
 .github-link:hover { border-color: var(--yellow); box-shadow: 0 0 15px var(--amber-glow); }
+
+/* Compact Project Sub-Styling */
+.proj-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.action-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-btns { display: flex; gap: 8px; }
+
+.mini-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+.mini-btn:hover {
+    background: linear-gradient(135deg, var(--red), var(--yellow));
+    border-color: transparent;
+    color: #000;
+}
+.mini-btn svg { width: 18px; height: 18px; }
 
 /* ==========================================================================
    7. CONTACT FORM
@@ -303,9 +434,7 @@ input, textarea {
     color: #fff; 
     font-family: inherit; 
     width: 100%; 
-    transition: 0.3s; 
 }
-
 input:focus, textarea:focus { outline: none; border-color: var(--yellow); background: rgba(255, 179, 0, 0.02); }
 
 /* ==========================================================================
@@ -320,9 +449,7 @@ footer {
     align-items: center;
     justify-content: center;
 }
-
 footer .social-icons-row { margin-bottom: 20px; }
-
 footer p { color: var(--text-dim); font-size: 0.75rem; letter-spacing: 1px; }
 
 .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
@@ -345,57 +472,139 @@ footer p { color: var(--text-dim); font-size: 0.75rem; letter-spacing: 1px; }
 }
 
 @media (max-width: 480px) {
-    .floating-nav {
-        top: 10px;
-        padding: 4px;
-        max-width: 98%; 
-    }
-    .nav-link {
-        font-size: 0.65rem; 
-        padding: 8px 10px;
-    }
+    .floating-nav { top: 10px; padding: 4px; max-width: 98%; }
+    .nav-link { font-size: 0.65rem; padding: 8px 10px; }
 }
 
-/* Compact Project Styling */
-.proj-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
+/* ==========================================================================
+   10. PREMIUM ANIMATED TEXT SYSTEM (Theme-Adaptive)
+   ========================================================================== */
+.solar-gradient {
+    background: linear-gradient(
+        110deg, 
+        #f43f5e 0%,      /* Deep warm rose */
+        #f59e0b 35%,     /* Sun amber */
+        #ffffff 50%,     /* Intense solar flare core */
+        #fbbf24 65%,     /* Radiant gold */
+        #f43f5e 100%     /* Loop fallback */
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    animation: simpleSolarFlare 6s ease-in-out infinite;
+    transition: background 0.5s ease;
 }
 
-.action-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+/* Dynamic High-Contrast Day Adjustment */
+body.light-mode .solar-gradient {
+    background: linear-gradient(
+        110deg, 
+        #dc2626 0%,      /* Deep Magma Red */
+        #ea580c 25%,     /* Plasma Orange */
+        #eab308 50%,     /* Pure Solar Ray Core */
+        #ea580c 75%,     /* Plasma Orange */
+        #dc2626 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.nav-btns {
-    display: flex;
-    gap: 8px;
+@keyframes simpleSolarFlare {
+    0% { background-position: 100% center; }
+    35% { background-position: -100% center; }
+    100% { background-position: -100% center; }
 }
 
-.mini-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border);
-    color: white;
-    padding: 5px 12px;
-    border-radius: 6px;
+/* ==========================================================================
+   11. CELESTIAL ECLIPSE TRANSITION SYSTEM & DAY SPECIFICS
+   ========================================================================== */
+/* --- Toggle Button Orbit Mechanics --- */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
     cursor: pointer;
-    transition: 0.3s;
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+    height: 36px;
+    width: 36px;
+}
+.theme-toggle-btn:hover { color: var(--yellow); }
+
+.icon-sky {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.icon-sky svg {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    transition: opacity 0.4s ease, transform 0.6s ease;
 }
 
-.mini-btn:hover {
-    background: linear-gradient(135deg, var(--red), var(--yellow));
-    border-color: transparent;
-    color: #000;
+/* --- Dark Mode State (Default) --- */
+body:not(.light-mode) .mode-icon-moon {
+    opacity: 0;
+    transform: scale(0.5) rotate(-45deg);
+}
+body:not(.light-mode) .mode-icon-sun {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
 }
 
-.mini-btn svg {
-    width: 18px;
-    height: 18px;
+/* --- Light Mode State (Solar Shift Mechanics) --- */
+body.light-mode .icon-sky { transform: rotate(360deg); }
+body.light-mode .mode-icon-sun { opacity: 0; transform: scale(0.5) rotate(45deg); }
+body.light-mode .mode-icon-moon { opacity: 1; transform: scale(1) rotate(0deg); color: #4338ca; }
+
+/* Solar Corona Layout Enhancements */
+body.light-mode .bento-card, 
+body.light-mode .exp-card {
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(234, 179, 8, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+body.light-mode .bento-card:hover, 
+body.light-mode .exp-card:hover {
+    border-color: #ea580c;
+    box-shadow: 0 15px 45px rgba(234, 88, 12, 0.12);
+}
+
+/* Form Interactivity fields in Day Mode */
+body.light-mode input, 
+body.light-mode textarea {
+    background: rgba(255, 255, 255, 0.4);
+    color: #2b1d0c;
+    border: 1px solid rgba(234, 158, 11, 0.2);
+}
+body.light-mode input:focus, 
+body.light-mode textarea:focus {
+    background: #ffffff;
+    border-color: #ea580c;
+    box-shadow: 0 0 15px rgba(234, 88, 12, 0.1);
+}
+
+/* Tags, Badges & Micro-buttons under Day Mode */
+body.light-mode .skill-tags span,
+body.light-mode .skill-group span {
+    background: rgba(245, 158, 11, 0.1);
+    color: #b45309;
+    border-color: rgba(245, 158, 11, 0.2);
+}
+body.light-mode .mini-btn {
+    background: rgba(245, 158, 11, 0.1);
+    color: #2b1d0c;
 }
